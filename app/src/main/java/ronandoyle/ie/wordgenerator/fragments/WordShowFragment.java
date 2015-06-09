@@ -17,19 +17,20 @@ import android.widget.TextView;
 import java.util.Random;
 
 import ronandoyle.ie.wordgenerator.R;
+import ronandoyle.ie.wordgenerator.Utilities;
 
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+public class WordShowFragment extends Fragment {
 
 
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
 
-    public MainActivityFragment() {
+    public WordShowFragment() {
     }
 
     @Override
@@ -44,7 +45,7 @@ public class MainActivityFragment extends Fragment {
 
         final Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);;
 
-        rootView.setBackgroundColor(generateRandomColor());
+        rootView.setBackgroundColor(Utilities.generateRandomColor());
 
         randomWordTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class MainActivityFragment extends Fragment {
                 animation.setFillAfter(true);
                 randomWordTextView.startAnimation(animation);
 
-                int bgColor = getContrastVersionForColor(generateRandomColor());
+                int bgColor = Utilities.getContrastVersionForColor();
                 randomWordTextView.setBackgroundColor(bgColor);
                 rootView.setBackgroundColor(bgColor);
 
@@ -81,27 +82,5 @@ public class MainActivityFragment extends Fragment {
             animation.setFillAfter(true);
             randomWordTextView.setAnimation(animation);
         }
-    }
-
-    public int generateRandomColor() {
-        Random random = new Random();
-        int red = random.nextInt(256);
-        int green = random.nextInt(256);
-        int blue = random.nextInt(256);
-
-        return Color.rgb(red, green, blue);
-    }
-
-    public static int getContrastVersionForColor(int color) {
-        float[] hsv = new float[3];
-        Color.RGBToHSV(Color.red(color), Color.green(color), Color.blue(color),
-                hsv);
-        if (hsv[2] < 0.5) {
-            hsv[2] = 0.75f;
-        } else {
-            hsv[2] = 0.25f;
-        }
-        hsv[1] = hsv[1] * 0.75f;
-        return Color.HSVToColor(hsv);
     }
 }

@@ -1,11 +1,9 @@
 package ronandoyle.ie.wordgenerator.activities;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,11 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import ronandoyle.ie.wordgenerator.R;
 import ronandoyle.ie.wordgenerator.fragments.CustomWordFragment;
-import ronandoyle.ie.wordgenerator.fragments.MainActivityFragment;
+import ronandoyle.ie.wordgenerator.fragments.WordShowFragment;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -34,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (findViewById(R.id.fragment_container) != null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, new MainActivityFragment()).commit();
+                    .add(R.id.fragment_container, new WordShowFragment()).commit();
         }
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
