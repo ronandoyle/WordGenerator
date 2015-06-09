@@ -10,17 +10,17 @@ import java.util.Random;
  */
 public class Utilities {
 
-    public static int generateRandomColor() {
+    /**
+     * Gets the pastel colour of the
+     * @return
+     */
+    public static int getPastelColour() {
         Random random = new Random();
         int red = random.nextInt(256);
         int green = random.nextInt(256);
         int blue = random.nextInt(256);
 
-        return Color.rgb(red, green, blue);
-    }
-
-    public static int getContrastVersionForColor() {
-        int color = generateRandomColor();
+        int color = Color.rgb(red, green, blue);
         float[] hsv = new float[3];
         Color.RGBToHSV(Color.red(color), Color.green(color), Color.blue(color),
                 hsv);

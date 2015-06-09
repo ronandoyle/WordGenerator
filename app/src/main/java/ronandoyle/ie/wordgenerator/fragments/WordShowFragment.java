@@ -1,7 +1,6 @@
 package ronandoyle.ie.wordgenerator.fragments;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
@@ -25,8 +24,9 @@ import ronandoyle.ie.wordgenerator.Utilities;
  */
 public class WordShowFragment extends Fragment {
 
-
-
+    /**
+     * Views.
+     */
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
 
@@ -38,14 +38,15 @@ public class WordShowFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
+        final Vibrator vibrator =
+                (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+
         final TextView randomWordTextView = (TextView) rootView.findViewById(R.id.tv_word);
         Typeface font = Typeface.createFromAsset(getActivity().getAssets(),
                 "fonts/theBubbleLetters.ttf");
         randomWordTextView.setTypeface(font);
 
-        final Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);;
-
-        rootView.setBackgroundColor(Utilities.generateRandomColor());
+        rootView.setBackgroundColor(Utilities.getPastelColour());
 
         randomWordTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +63,7 @@ public class WordShowFragment extends Fragment {
                 animation.setFillAfter(true);
                 randomWordTextView.startAnimation(animation);
 
-                int bgColor = Utilities.getContrastVersionForColor();
+                int bgColor = Utilities.getPastelColour();
                 randomWordTextView.setBackgroundColor(bgColor);
                 rootView.setBackgroundColor(bgColor);
 
@@ -76,6 +77,13 @@ public class WordShowFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        applyRandomWordAnimation();
+    }
+
+    /**
+     * Applies an animation on the random word TextView.
+     */
+    private void applyRandomWordAnimation() {
         if (getView() != null) {
             TextView randomWordTextView = (TextView) getView().findViewById(R.id.tv_word);
             Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_down);
