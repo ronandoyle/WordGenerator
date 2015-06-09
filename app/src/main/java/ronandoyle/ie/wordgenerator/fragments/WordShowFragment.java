@@ -42,9 +42,7 @@ public class WordShowFragment extends Fragment {
                 (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
         final TextView randomWordTextView = (TextView) rootView.findViewById(R.id.tv_word);
-        Typeface font = Typeface.createFromAsset(getActivity().getAssets(),
-                "fonts/theBubbleLetters.ttf");
-        randomWordTextView.setTypeface(font);
+        Utilities.setCustomTypeface(getActivity(), randomWordTextView);
 
         rootView.setBackgroundColor(Utilities.getPastelColour());
 

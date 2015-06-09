@@ -1,6 +1,9 @@
 package ronandoyle.ie.wordgenerator;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -31,6 +34,21 @@ public class Utilities {
         }
         hsv[1] = hsv[1] * 0.75f;
         return Color.HSVToColor(hsv);
+    }
+
+    /**
+     * Sets a custom typeface on the provided TextView.
+     *
+     * @param context A context.
+     * @param textView A TextView to have a typeface set on.
+     */
+    public static void setCustomTypeface(Context context, TextView textView) {
+        if (textView == null) {
+            return;
+        }
+        Typeface typeface = Typeface.createFromAsset(context.getAssets(),
+                "fonts/theBubbleLetters.ttf");
+        textView.setTypeface(typeface);
     }
 
 }
