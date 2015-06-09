@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="random_word">
+        <item>Cleverdness</item>
+        <item>Flabulous</item>
+        <item>Fantabulous</item>
+        <item>Noodile</item>
+        <item>Hangry</item>
+        <item>Twerkadoodle</item>
+        <item>Ridonkquleous</item>
+        <item>Flubbernubble</item>
+        <item>Confuzzled</item>
+        <item>Scrumbumptious</item>
+        <item>Slibbers</item>
+        <item>Samsquanch</item>
+        <item>Colourdly</item>
+        <item>Colourdly</item>
+    </string-array>
+
+    <string-array name="drawer_items">
+        <item>Create you\'re own!</item>
+    </string-array>
+</resources>

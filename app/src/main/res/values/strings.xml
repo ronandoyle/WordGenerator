@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Word Generator</string>
+    <string name="random">Tap the screen to find a random word</string>
+    <string name="action_settings">Settings</string>
+</resources>
