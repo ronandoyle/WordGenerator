@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import net.i2p.android.ext.floatingactionbutton.AddFloatingActionButton;
+
 import java.util.Random;
 
 import ronandoyle.ie.wordgenerator.R;
@@ -66,6 +71,19 @@ public class WordShowFragment extends Fragment {
                 rootView.setBackgroundColor(bgColor);
 
                 vibrator.vibrate(50);
+            }
+        });
+
+        AddFloatingActionButton fab = (AddFloatingActionButton) rootView.findViewById(R.id.add_new_word_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "FAB Clicked!", Toast.LENGTH_SHORT).show();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager()
+                        .beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new CustomWordFragment(),
+                        CustomWordFragment.TAG);
+                fragmentTransaction.commit();
             }
         });
 

@@ -7,7 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import net.i2p.android.ext.floatingactionbutton.AddFloatingActionButton;
 
 import ronandoyle.ie.wordgenerator.R;
 import ronandoyle.ie.wordgenerator.Utilities;
@@ -28,8 +32,6 @@ public class CustomWordFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstance) {
         View view = inflater.inflate(R.layout.fragment_custom_word, container, false);
-        view.findViewById(R.id.custom_word_view)
-                .setBackgroundColor(Utilities.getPastelColour());
 
         final EditText newInputWord = (EditText) view.findViewById(R.id.et_custom_word);
 

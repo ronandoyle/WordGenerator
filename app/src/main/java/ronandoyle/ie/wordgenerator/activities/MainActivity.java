@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import net.i2p.android.ext.floatingactionbutton.AddFloatingActionButton;
+
 import ronandoyle.ie.wordgenerator.R;
 import ronandoyle.ie.wordgenerator.fragments.CustomWordFragment;
 import ronandoyle.ie.wordgenerator.fragments.WordShowFragment;
@@ -31,27 +33,9 @@ public class MainActivity extends ActionBarActivity {
         if (findViewById(R.id.fragment_container) != null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, new WordShowFragment()).commit();
+//            getSupportFragmentManager().beginTransaction()
+//                    .add(R.id.fragment_container, new CustomWordFragment()).commit();
         }
-
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView)findViewById(R.id.left_drawer);
-        String[] jabber = getResources().getStringArray(R.array.drawer_items);
-
-        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, jabber);
-        mDrawerList.setAdapter(mAdapter);
-
-        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
-
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container,  new CustomWordFragment(), CustomWordFragment.TAG);
-                fragmentTransaction.commit();
-
-                mDrawerLayout.closeDrawers();
-            }
-        });
     }
 
 
